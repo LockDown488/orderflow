@@ -5,13 +5,19 @@ This file is a **restart point**, not a productivity scorecard. A 10-minute sess
 ## Current status
 - **Stage:** Sprint 0 — project foundation
 - **Completed:** OF-001 accepted by developer; manual ` .\gradlew.bat build -x test` succeeded (developer-reported). Spring Boot 4.1.2 retained and requirements corrected.
-- **Current focus:** OF-002 accepted by developer and marked `Done`; preparing approved local commits on `feature/OF-002-postgres`.
-- **Blockers:** No confirmed PostgreSQL blocker. Full application build with tests remains unverified.
+- **Current focus:** OF-002 merged into `dev` and its feature branch deleted. PostgreSQL configuration is available in the repository.
+- **Blockers:** Full application build with tests remains unverified.
 
 ## Next tiny step
-1. Review the local commits, then obtain explicit approval for push and a PR into `dev`. No push, PR or new implementation task is authorized yet.
+1. Review `docs/backlog.md` on `dev` and choose the next small task when ready. Do not begin implementation until its scope and branch are agreed.
 
 ## Session log
+
+### 2026-11-15 — OF-002 merged
+- **Done:** OF-002 was accepted, pushed, and merged into `dev` by the developer. The remote and local `feature/OF-002-postgres` branches were deleted. PostgreSQL connection from IDEA was confirmed after correcting the local `.env` password to match the database.
+- **Checks:** Compose healthcheck, SQL query, password authentication, and persistence across container recreation were verified. Application tests were not run.
+- **Blockers:** None reported for PostgreSQL. Full application build with tests remains unverified.
+- **Next action:** Review the backlog on `dev` before selecting the next implementation task.
 
 ### 2026-11-15 — OF-002 commit preparation
 - **Decision:** Developer approved separate local commits for collaboration rules and PostgreSQL setup/journal. `docs/project-context.md` stays local and is excluded via `.git/info/exclude`; inspection found no tracked file or commits for that path in local branch history.
@@ -41,7 +47,6 @@ This file is a **restart point**, not a productivity scorecard. A 10-minute sess
 - **Checks:** `git diff --check` passed before this journal update. Initial Wrapper launch could not write to `C:\.gradle`; using `--gradle-user-home .gradle/user-home` worked. Build under default JDK 23 failed to detect toolchain 21. Retried under explicit JDK 21; build reached `compileJava` and failed accessing `spring-boot-starter-jackson-4.1.2.jar` in `.gradle/user-home/caches`. Tests did not run; successful compilation is not confirmed.
 - **Command (PowerShell, project root):** `$env:JAVA_HOME = 'C:/Users/artem/.jdks/temurin-21.0.13'; .\gradlew.bat --gradle-user-home .gradle/user-home build --console=plain`
 - **Blockers:** `java.nio.file.AccessDeniedException` for the cached dependency JAR; cause not yet established. No build scripts, system settings, or tests changed.
-- **Next action:** Repeat the command above with `--stacktrace` and identify the cache access failure before changing project configuration. OF-001 remains `In Progress`, pending developer review; no subsequent task started.
 
 ### 2026-11-15 — Setup
 - **Done:** Created the repository and pushed the initial project; prepared documentation and Codex guidance.
