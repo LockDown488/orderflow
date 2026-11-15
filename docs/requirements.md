@@ -8,7 +8,7 @@ Backend-платформа одного интернет-магазина: ка�
 Один магазин (`single`), роли `CUSTOMER`/`MANAGER`/`ADMIN` (`three`), один склад (`single`), встроенный mock payment (`mock`), минимальный MVP (`mvp`), modular monolith.
 
 ## 3. Технологии
-Java 21; Spring Boot 3.x (актуальную поддерживаемую версию уточнить перед инициализацией); Spring MVC; Spring Data JPA; Spring Security/JWT; Jakarta Validation; PostgreSQL; Liquibase; Gradle; Docker Compose; OpenAPI; JUnit 5, Mockito, Testcontainers. `BigDecimal` для денег, `UUID` для ID. Никаких внешних платёжных интеграций.
+Java 21; Spring Boot 4.x (текущая версия — 4.1.2, источник истины — `build.gradle`); Spring MVC; Spring Data JPA; Spring Security/JWT; Jakarta Validation; PostgreSQL; Liquibase; Gradle; Docker Compose; OpenAPI; JUnit 5, Mockito, Testcontainers. `BigDecimal` для денег, `UUID` для ID. Никаких внешних платёжных интеграций.
 
 ## 4. Функциональные требования
 - FR-01 Регистрация покупателя по email/паролю и JWT-аутентификация.
